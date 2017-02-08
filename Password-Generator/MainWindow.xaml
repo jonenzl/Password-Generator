@@ -5,12 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Password_Generator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="525">
-
-    <Grid>
-        <Label x:Name="passwordGenerator" Content="Password Generator" FontSize="24" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" Foreground="#FF2D89EF" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label x:Name="length" Content="Length:" HorizontalAlignment="Left" Margin="78,112,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="288,112,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" FontSize="14">
+        Title="MainWindow" Height="475" Width="525" MinHeight="475" MinWidth="525">
+   
+    <Grid ShowGridLines="False" Margin="75,25,75,50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height=".8*"></RowDefinition>
+            <RowDefinition Height=".8*"></RowDefinition>
+            <RowDefinition Height=".8*"></RowDefinition>
+            <RowDefinition Height=".8*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="passwordGenerator" Content="Password Generator" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#FF2D89EF" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
+        <Label x:Name="length" Content="Length:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <ComboBox x:Name="comboBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" SelectedIndex="0" FontSize="14">
             <ComboBoxItem Content="6"/>
             <ComboBoxItem Content="7"/>
             <ComboBoxItem Content="8"/>
@@ -22,18 +36,18 @@
             <ComboBoxItem Content="14"/>
             <ComboBoxItem Content="15"/>
         </ComboBox>
-        <Label x:Name="uppercase" Content="Include uppercase characters:" HorizontalAlignment="Left" Margin="78,142,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="uppercaseEg" Content="(eg. ABCDEF)" HorizontalAlignment="Left" Margin="308,142,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <CheckBox x:Name="upperchaseCheckBox" Content="" HorizontalAlignment="Left" Margin="288,150,0,0" VerticalAlignment="Top" Checked="uppercaseCheckBox_Checked" Unchecked="uppercaseCheckBox_Unchecked"/>
-        <Label x:Name="numbers" Content="Include numbers:" HorizontalAlignment="Left" Margin="78,172,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="numbersEg" Content="(eg. 123456)" HorizontalAlignment="Left" Margin="308,172,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <CheckBox x:Name="numbersCheckBox" Content="" HorizontalAlignment="Left" Margin="288,180,0,0" VerticalAlignment="Top" Checked="numbersCheckBox_Checked" Unchecked="numbersCheckBox_Unchecked"/>
-        <Label x:Name="symbols" Content="Include symbols:" HorizontalAlignment="Left" Margin="78,202,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="symbolsEg" Content="(eg. ?!@#$%^&amp;*)" HorizontalAlignment="Left" Margin="308,202,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <CheckBox x:Name="symbolsCheckBox" Content="" HorizontalAlignment="Left" Margin="288,210,0,0" VerticalAlignment="Top" Checked="symbolsCheckBox_Checked" Unchecked="symbolsCheckBox_Unchecked"/>
-        <Label x:Name="password" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="158,275,159,0" VerticalAlignment="Top" Width="200" FontSize="14" FontWeight="Bold"/>
-        <Rectangle Fill="Transparent" HorizontalAlignment="Center" Height="50" Margin="0,262,0,0" Stroke="#FFB2B2B2" VerticalAlignment="Top" Width="250"/>
-        <Button x:Name="button" Content="Generate" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Center" Width="100" Height="30" FontSize="14" Click="btnGeneratePassword_Click" BorderBrush="{x:Null}" FontFamily="Segoe UI Semibold">
+        <Label x:Name="uppercase" Content="Include uppercase characters:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <Label x:Name="uppercaseEg" Content="(eg. ABCDEF)" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <CheckBox x:Name="upperchaseCheckBox" Content="" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="uppercaseCheckBox_Checked" Unchecked="uppercaseCheckBox_Unchecked"/>
+        <Label x:Name="numbers" Content="Include numbers:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <Label x:Name="numbersEg" Content="(eg. 123456)" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <CheckBox x:Name="numbersCheckBox" Content="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="numbersCheckBox_Checked" Unchecked="numbersCheckBox_Unchecked"/>
+        <Label x:Name="symbols" Content="Include symbols:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <Label x:Name="symbolsEg" Content="(eg. ?!@#$%^&amp;*)" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <CheckBox x:Name="symbolsCheckBox" Content="" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="symbolsCheckBox_Checked" Unchecked="symbolsCheckBox_Unchecked"/>
+        <Label x:Name="password" Content="" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" FontSize="14" FontWeight="Bold"/>
+        <Rectangle Fill="Transparent" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" Height="50" Stroke="#FFB2B2B2" Width="250"/>
+        <Button x:Name="button" Content="Generate" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" Width="100" Height="30" FontSize="14" Click="btnGeneratePassword_Click" BorderBrush="{x:Null}" FontFamily="Segoe UI Semibold">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#FF2D89EF"/>
