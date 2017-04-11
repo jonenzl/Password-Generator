@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Password_Generator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="475" Width="525" MinHeight="475" MinWidth="525">
+        Title="MainWindow" Height="475" Width="600" MinHeight="475" MinWidth="600">
    
     <Grid ShowGridLines="False" Margin="75,25,75,50">
         <Grid.RowDefinitions>
@@ -24,18 +24,8 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="passwordGenerator" Content="Password Generator" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#FF2D89EF" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
         <Label x:Name="length" Content="Length:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
-        <ComboBox x:Name="comboBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" SelectedIndex="0" FontSize="14">
-            <ComboBoxItem Content="6"/>
-            <ComboBoxItem Content="7"/>
-            <ComboBoxItem Content="8"/>
-            <ComboBoxItem Content="9"/>
-            <ComboBoxItem Content="10"/>
-            <ComboBoxItem Content="11"/>
-            <ComboBoxItem Content="12"/>
-            <ComboBoxItem Content="13"/>
-            <ComboBoxItem Content="14"/>
-            <ComboBoxItem Content="15"/>
-        </ComboBox>
+        <Slider x:Name="slider" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="110" Minimum="8" Maximum="32" IsSnapToTickEnabled="True" />
+        <TextBox x:Name="sliderText" Text="{Binding ElementName=slider, Path=Value}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Margin="80,0,0,0" TextAlignment="Center" />
         <Label x:Name="uppercase" Content="Include uppercase characters:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
         <Label x:Name="uppercaseEg" Content="(eg. ABCDEF)" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
         <CheckBox x:Name="upperchaseCheckBox" Content="" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="uppercaseCheckBox_Checked" Unchecked="uppercaseCheckBox_Unchecked"/>
@@ -46,7 +36,7 @@
         <Label x:Name="symbolsEg" Content="(eg. ?!@#$%^&amp;*)" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
         <CheckBox x:Name="symbolsCheckBox" Content="" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="symbolsCheckBox_Checked" Unchecked="symbolsCheckBox_Unchecked"/>
         <Label x:Name="password" Content="" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" FontSize="14" FontWeight="Bold"/>
-        <Rectangle Fill="Transparent" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" Height="50" Stroke="#FFB2B2B2" Width="250"/>
+        <Rectangle Fill="Transparent" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" Height="50" Stroke="#FFB2B2B2" Width="300"/>
         <Button x:Name="button" Content="Generate" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" Width="100" Height="30" FontSize="14" Click="btnGeneratePassword_Click" BorderBrush="{x:Null}" FontFamily="Segoe UI Semibold">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
